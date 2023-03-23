@@ -1,0 +1,182 @@
+% !TEX program  = xelatex
+\documentclass{article}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{amsmath}
+%\usepackage{ocencfd}
+\usepackage{amssymb}
+\title{Homework 1} % Sets article title
+\author{Yang Che,  202218000206022} % Sets authors name
+%\authorID{jsmith} %Link to your profile ID.
+%\documentID{HW1} %Should be alphanumeric identifier
+%\fileInclude{} %Names of file to attach
+\date{} % Sets date for publication as date compiled
+
+% The preamble ends with the command \begin{document}
+\begin{document} % All begin commands must be paired with an end command somewhere
+
+\maketitle % creates title using information in preamble (title, author, date)
+
+%New section is created
+\section{HW2.5}
+Given $A\in\mathbb{R}^{N\times N}$ and $0\neq v\in\mathbb{R}^N$. Then the Krylov subspace satisfy the following properties:
+\begin{enumerate}[(1)]
+    \item $\mathcal{K}_m(A,v)\subset \mathcal{K}_{m+1}(A,v) ;$
+    \item $A\mathcal{K}_m(A,v)\subset \mathcal{K}_{m+1}(A,v) ;$
+    \item $\mathcal{K}_m(A,v) =\mathcal{K}_{m}(\alpha A,v)=\mathcal{K}_{m}(A,\alpha v) ,$ for any $0\neq \alpha \in\mathbb{R};$
+
+    \item $\mathcal{K}_m(A,v) =\mathcal{K}_{m}(A-\alpha I, v) ,$ for any   $\alpha \in\mathbb{R};$
+    \item $\mathcal{K}_m(Q^{-1}AQ,Q^{-1}v) =Q^{-1}\mathcal{K}_{m}(A, v) ,$ for any nonsingular matrix  $Q\in \mathbb{R}^{N\times N};$
+    \item  $\mathcal{K}_m(A,v)=\{p(A)v:p\in\mathcal{P}_{m-1}\}$, where $\mathcal{P}_{m-1}$ is the real polynomials of degree less than $m$.
+\end{enumerate}
+\textbf{Proof:}
+\begin{enumerate}[(1)]
+    \item If $x\in \mathcal{K}_m(A,v)$, then
+          \begin{equation*}
+              \begin{aligned}
+                  x=\sum_{i=1}^m k_i A^{i-1}v\in \mathcal{K}_{m+1}(A,v),\quad k_i\in\mathbb{R},
+              \end{aligned}
+          \end{equation*}
+          so $\mathcal{K}_m(A,v)\subset \mathcal{K}_{m+1}(A,v) .$
+    \item If $x\in A\mathcal{K}_m(A,v)$, then
+          \begin{equation*}
+              \begin{aligned}
+                  x= & A\sum_{i=1}^m k_i A^{i-1}v                                                \\
+                  =  & \sum_{i=1}^m k_i A^{i}v\in \mathcal{K}_{m+1}(A,v),\quad k_i\in\mathbb{R},
+              \end{aligned}
+          \end{equation*}
+          so $A\mathcal{K}_m(A,v)\subset \mathcal{K}_{m+1}(A,v)  .$
+
+    \item If $x\in \mathcal{K}_m(A,v)$, then
+          \begin{equation*}
+              \begin{aligned}
+                  x= & \sum_{i=1}^m k_i A^{i-1}v                                                                                    \\
+                  =  & \sum_{i=1}^m \frac{k_i}{\alpha^{i-1}} (\alpha A)^{i-1}v \in\mathcal{K}_m(\alpha A,v),\quad k_i\in\mathbb{R},
+              \end{aligned}
+          \end{equation*}
+          so $\mathcal{K}_m(A,v)\subset\mathcal{K}_m(\alpha A,v) $, and in the same way,$\mathcal{K}_m(\alpha A,v)\subset\mathcal{K}_m(\frac{1}{\alpha}\alpha A,v)= \mathcal{K}_m(A,v)$, so $\mathcal{K}_m(A,v)=\mathcal{K}_m(\alpha A,v);$
+
+
+
+          If $x\in \mathcal{K}_m(A,v)$, then
+          \begin{equation*}
+              \begin{aligned}
+                  x= & \sum_{i=1}^m k_i A^{i-1}v                                                                                \\
+                  =  & \sum_{i=1}^m \frac{k_i}{\alpha}  A^{i-1}(\alpha v) \in\mathcal{K}_m( A,\alpha v),\quad k_i\in\mathbb{R},
+              \end{aligned}
+          \end{equation*}
+          so $\mathcal{K}_m(A,v)\subset\mathcal{K}_m( A,\alpha v) $, and in the same way,$\mathcal{K}_m( A,\alpha v)\subset\mathcal{K}_m(A,\frac{1}{ \alpha}\alpha v)= \mathcal{K}_m(A,v)$, so $\mathcal{K}_m(A,v)=\mathcal{K}_m(A,\alpha v).$
+
+    \item  If $x\in \mathcal{K}_m(A-\alpha I,v)$, then
+          \begin{equation*}
+              \begin{aligned}
+                  x= & \sum_{i=1}^m k_i (A-\alpha I)^{i-1}v                                                                                \\
+                  =  & \sum_{i=1}^m k_i \sum_{j=0}^{i-1}\begin{pmatrix} i-1 \\
+                                                            j\end{pmatrix}(-\alpha)^{i-1-j}A^j v \in\mathcal{K}_m(A,v),\quad k_i\in\mathbb{R},
+              \end{aligned}
+          \end{equation*}
+
+          so $\mathcal{K}_m(A-\alpha I,v)\subset\mathcal{K}_m( A,\alpha v) $, and in the same way,$\mathcal{K}_m( A-\alpha I, v)\subset\mathcal{K}_m(A-\alpha I +\alpha I, v)= \mathcal{K}_m(A,v)$, so $\mathcal{K}_m(A,v)=\mathcal{K}_m(A-\alpha I,v).$
+    \item If $x\in \mathcal{K}_m(Q^{-1}AQ,Q^{-1}v)$, then
+          \begin{equation*}
+              \begin{aligned}
+                  x= & \sum_{i=1}^{m} k_i (Q^{-1}AQ)^{i-1}Q^{-1}v                                                            \\
+                  =  & \sum_{i=1}^{m} k_iQ^{-1}A^{i-1}v                                                                      \\
+                  =  & Q^{-1}\sum_{i=1}^{m} k_i A^{i-1}v     \in Q^{-1}\mathcal{K}_m(A,v)           ,\quad k_i\in\mathbb{R},
+              \end{aligned}
+          \end{equation*}
+          so $\mathcal{K}_m(Q^{-1}AQ,Q^{-1}v)\subset Q^{-1}\mathcal{K}_m(A,v)$.
+
+          If $x\in Q^{-1}\mathcal{K}_m(A,v)$, then
+          \begin{equation*}
+              \begin{aligned}
+                  x= & Q^{-1}\sum_{i=1}^{m} k_i A^{i-1}v          \\
+                  =  & \sum_{i=1}^{m} k_i QA^{i-1}v               \\
+                  =  & \sum_{i=1}^{m} k_i (Q^{-1}AQ)^{i-1}Q^{-1}v
+                  \in \mathcal{K}_m(Q^{-1}AQ,Q^{-1}v)         ,\quad k_i\in\mathbb{R},
+              \end{aligned}
+          \end{equation*}
+          so $\mathcal{K}_m(Q^{-1}AQ,Q^{-1}v)\subset Q\mathcal{K}_m(A,v)$, so $\mathcal{K}_m(Q^{-1}AQ,Q^{-1}v)= Q\mathcal{K}_m(A,v).$
+
+    \item If $x\in \mathcal{K}_m(A,v)$, then
+          \begin{equation*}
+              \begin{aligned}
+                  x= & \sum_{i=1}^{m} k_i A^{i-1}v \\
+                  = p(A) v
+              \end{aligned}
+          \end{equation*}
+          where $p(A)=\sum_{i=1}^{m} k_i A^{i-1}$. So, $\mathcal{K}_m(A,v)\subset \{p(A)v:p\in\mathcal{P}_{m-1}\}$.
+
+          If $x\in \{p(A)v:p\in\mathcal{P}_{m-1}\}$, there exists a polynomial $p(y)$ of
+          degree less than m that statisfies $x=p(A)v$. Assume $p(y)=\sum_{i=1}^{m} k_i y^{i-1}, k_i\in\mathbb{R}$,
+          \begin{equation*}
+              \begin{aligned}
+                  x= & p(A)v                          \\
+                  =  & \sum_{i=1}^{m} k_i A^{i-1}v\in
+                  \mathcal{K}_m(A,v)\end{aligned}
+          \end{equation*}
+          So $\{p(A)v:p\in\mathcal{P}_{m-1}\}\subset \mathcal{K}_m(A,v)$, so $\{p(A)v:p\in\mathcal{P}_{m-1}\}=\mathcal{K}_m(A,v)$.
+\end{enumerate}
+\section{HW2.6}
+Suppose that $\mathcal{A}$ is SPD and $\mathcal{A}u = f$. Show that the following conditions are equivalent
+to each other:
+\begin{enumerate}[(1)]
+    \item Vector $u_m\in\mathcal{K}_m(\mathcal{A},f)$  satisfies that $\Vert u_m-u\Vert_\mathcal{A}=\min\{\Vert v-u\Vert_\mathcal{A}:v\in \mathcal{K}_m(\mathcal{A},f)\};$
+    \item Vector $u_m\in\mathcal{K}_m(\mathcal{A},f)$  satisfies that $\Vert f-\mathcal{A}u_m\Vert_{\mathcal{A}^{-1}}=\min\{\Vert f-\mathcal{A}u_m\Vert_{\mathcal{A}^{-1}}:v\in \mathcal{K}_m(\mathcal{A},f)\};$
+    \item Vector $u_m\in\mathcal{K}_m(\mathcal{A},f)$  satisfies that $v^T( f-\mathcal{A}u_m)=0$  for any $v\in \mathcal{K}_m(\mathcal{A},f)$.
+\end{enumerate}
+\textbf{Proof:}
+
+$(1)\Leftrightarrow (2)$:
+
+\begin{equation*}
+    \begin{aligned}
+        \Vert u_m-u\Vert_\mathcal{A}^2 & =(\mathcal{A}(u_m-u),u_m-u)                              \\
+                                       & =(\mathcal{A}^{-1}\mathcal{A}(u_m-u),\mathcal{A}(u_m-u)) \\
+                                       & =(\mathcal{A}^{-1}(f-\mathcal{A}u_m),f-\mathcal{A}u_m)   \\
+                                       & =\Vert f-\mathcal{A}u_m\Vert_{\mathcal{A}^{-1}}^2
+    \end{aligned}
+\end{equation*}
+So, $\Vert u_m-u\Vert_\mathcal{A}=\Vert f-\mathcal{A}u_m\Vert_{\mathcal{A}^{-1}}$, and then (1) and (2) are equivalent.
+
+$(1)\Leftrightarrow (3)$:
+If $v\in \mathcal{K}_m(\mathcal{A},v),$ thus  $v+u_m\in \mathcal{K}_m(\mathcal{A},v),$
+\begin{equation*}
+    \begin{aligned}
+        \Vert u_m+v-u\Vert_\mathcal{A}^2 & =(\mathcal{A}(u_m+v-u),u_m+v-u)                                                     \\
+                                         & =(\mathcal{A}v,v)+(\mathcal{A}(u_m-u),u_m-u) +2 (\mathcal{A}(u_m-u),v)              \\
+                                         & =\Vert v\Vert_\mathcal{A}^2+\Vert u_m-u\Vert_\mathcal{A}^2+2 (\mathcal{A}(u_m-u),v)
+    \end{aligned}
+\end{equation*}
+(1) $\Rightarrow$ (3):
+If  vector $u_m\in\mathcal{K}_m(\mathcal{A},f)$  satisfies that $\Vert u_m-u\Vert_\mathcal{A}=\min\{\Vert v-u\Vert_\mathcal{A}:v\in \mathcal{K}_m(\mathcal{A},f)\}$,then
+$\Vert v \Vert_\mathcal{A}^2+2 (\mathcal{A}(u_m-u),v)\geqslant 0$,
+substitute $tv\in\mathcal{K}_m(\mathcal{A},v), t\in\mathbb{R}$ for $v$, where $(\mathcal{A}(u_m-u),v)=r$. And this yields $2tr\leqslant t^2\Vert v\Vert_\mathcal{A}^2$, in the same way $-2tr\leqslant t^2\Vert v\Vert_\mathcal{A}^2$.
+So $2t\vert r\vert \leqslant t^2\Vert v\Vert_\mathcal{A}^2$. Letting $t\to 0$, we see that $r=0$. So $v^T(f-\mathcal{A}u_m)=-(\mathcal{A}(u_m-u),v)=0$
+
+(3) $\Rightarrow$ (1):
+If vector $u_m\in\mathcal{K}_m(\mathcal{A},f)$  satisfies that $v^T( f-\mathcal{A}u_m)=0$  for any $v\in \mathcal{K}_m(\mathcal{A},f)$, then
+\begin{equation*}
+    \begin{aligned}
+        \Vert v-u\Vert_\mathcal{A}^2
+         & =(\mathcal{A}(v-u_m+u_m-u),v-u_m+u_m-u)                                                    \\
+         & =\Vert v-u_m\Vert_\mathcal{A}^2+\Vert u_m-u\Vert_\mathcal{A}^2+2(\mathcal{A}(u_m-u),v-u_m)
+    \end{aligned}
+\end{equation*}
+$v-u_m\in\mathcal{K}_m(A,v)$, so $0=(v-u_m)^T(f-\mathcal{A}u_m)=(\mathcal{A}(u_m-u),v-u_m)$. So
+\begin{equation*}
+    \begin{aligned}
+        \Vert v-u\Vert_\mathcal{A}^2
+         & =\Vert v-u_m\Vert_\mathcal{A}^2+\Vert u_m-u\Vert_\mathcal{A}^2 \\
+         & \geqslant \Vert u_m-u\Vert_\mathcal{A}^2 .
+    \end{aligned}
+\end{equation*}
+
+
+
+
+
+
+
+
+\end{document} % This is the end of the document
