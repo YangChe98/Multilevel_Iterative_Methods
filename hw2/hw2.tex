@@ -1,0 +1,123 @@
+% !TEX program  = xelatex
+\documentclass{article}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{amsmath}
+%\usepackage{ocencfd}
+\usepackage{amssymb}
+\title{Homework 2} % Sets article title
+\author{Yang Che,  202218000206022} % Sets authors name
+%\authorID{jsmith} %Link to your profile ID.
+%\documentID{HW1} %Should be alphanumeric identifier
+%\fileInclude{} %Names of file to attach
+\date{} % Sets date for publication as date compiled
+
+% The preamble ends with the command \begin{document}
+\begin{document} % All begin commands must be paired with an end command somewhere
+
+\maketitle % creates title using information in preamble (title, author, date)
+
+%New section is created
+\section{HW3.2}
+If $\mathcal{A},\mathcal{B}:V\to V$ and $u,v\in V$, we have the following results:
+\begin{enumerate}[1.]
+    \item $\underline{\mathcal{AB}}=\underline{\mathcal{A}}\, \underline{\mathcal{B}};$
+    \item $\underline{\mathcal{A}v}=\underline{\mathcal{A}}\, \underline{v};$
+    \item $\sigma(\mathcal{A})=\sigma(\underline{\mathcal{A}}),\kappa(\mathcal{A})=\kappa(\underline{\mathcal{A}});$
+    \item $\vec{v}=M\underline{v},\overrightarrow{\mathcal{A}v}=\hat{\mathcal{A}}\underline{v};$
+    \item $\hat{A}=M\underline{\mathcal{A}};$
+    \item $(u,v)=(M\underline{u},\underline{v}).$
+\end{enumerate}
+\textbf{Proof:}
+
+Suppose that $\{\phi_i\}_{i=1,\cdots,N}$ is a basis of the finite-dimensional space $V$.Suppose $\{\psi_i^1\}_{i=1,\cdots, N},\{\psi_i^2\}_{i=1,\cdots, N}$
+are another bases of $V$. The matrix representation of $\mathcal{A}$ is $\underline{\mathcal{A}}\in\mathbb{R}^{N\times N}$,  such that $\sum_{i=1}^N (\underline{\mathcal{A}})_{i,j}\psi^2 _i=\mathcal{A}\psi^1_j\, (j,1,\cdots,N)$
+and the matrix representation of $\mathcal{B}$ is $\underline{\mathcal{B}}\in\mathbb{R}^{N\times N}$, such that  $\sum_{i=1}^N (\underline{\mathcal{B}})_{i,j}\psi^1 _i=\mathcal{B}\phi_j\, (j,1,\cdots,N)$
+\begin{enumerate}[1.]
+    \item \begin{equation*}
+              \begin{aligned}
+                  \mathcal{AB}\phi_j & =\mathcal{A}(\mathcal{B}\phi_j)                                                                   \\
+                                     & =\mathcal{A}\sum_{i=1}^N (\underline{\mathcal{B}})_{i,j}\psi^1 _i                                 \\
+                                     & =\sum_{i=1}^N (\underline{\mathcal{B}})_{i,j}\mathcal{A}\psi^1 _i                                 \\
+                                     & =\sum_{i=1}^N\sum_{k=1}^N (\underline{\mathcal{B}})_{i,j}(\underline{\mathcal{A}})_{k,i}\psi^2 _k \\
+              \end{aligned}
+          \end{equation*}
+          and $\mathcal{AB}\phi_j=\sum_{k=1}^N (\underline{\mathcal{AB}})_{k,j}\psi^2_k$,
+          thus ,$\sum_{i=1}^N (\underline{\mathcal{B}})_{i,j}(\underline{\mathcal{A}})_{k,i}= (\underline{\mathcal{AB}})_{k,j}$,\, so\,
+          $\underline{\mathcal{AB}}=\underline{\mathcal{A}}\, \underline{\mathcal{B}}.$
+    \item \begin{equation*}
+              \begin{aligned}
+                  \mathcal{A}v= & \mathcal{A}\sum_{i=1}^N \underline{v}_i\phi_i                                 \\
+                  =             & \sum_{i=1}^N \underline{v}_i\mathcal{A}\phi_i                                 \\
+                  =             & \sum_{j=1}^N\sum_{i=1}^N \underline{v}_i(\underline{\mathcal{A}})_{j,i}\phi_j
+              \end{aligned}
+          \end{equation*}
+          and $\mathcal{A}v=\sum_{j=1}^N (\underline{\mathcal{A}v})_{j}v_j$,
+          thus ,$(\underline{\mathcal{A}v})_{j}=\sum_{i=1}^N \underline{v}_i(\underline{\mathcal{A}})_{j,i}$,\, so\,
+          $\underline{\mathcal{A}v}=\underline{\mathcal{A}}\, \underline{v}.$
+
+    \item If $\lambda$ is the eigenvalue of $\mathcal{A}$ such that $\mathcal{A}v=\lambda v$, then
+          $\mathcal{A}v=\sum_{i=1}^n (\underline{\mathcal{A}v})_i\phi_i$ and $\mathcal{A}v=\sum_{i=1}^n \lambda(\underline{v})_i\phi_i$, so $(\underline{Av})_i=\lambda(\underline{v})_i$, thus $\underline{\mathcal{A}}\,\underline{v}=\underline{\mathcal{A}v}=\lambda v$.
+          $\lambda$ is also the eigenvalue of $\underline{\mathcal{A}}$.
+
+          If $\lambda$ is the eigenvalue of $\underline{\mathcal{A}}$ such that $\underline{\mathcal{A}}\,\underline{v}=\lambda \underline{v},
+              \sum_{j=1}^N(\underline{\mathcal{A}})_{i,j}\,\underline{v}_j=\lambda \underline{v}_i$, then
+          $\mathcal{A}v=\sum_{i=1}^n (\underline{\mathcal{A}v})_i\phi_i=\sum_{j=1}^n\sum_{i=1}^n (\underline{\mathcal{A}})_{i,j}\underline{v}_j\phi_i=\lambda\sum_{i=1}^N(\overline{v})_i\phi_i=\lambda v$,
+          thus $\mathcal{A}v=\lambda v$.
+          $\lambda$ is also the eigenvalue of ${\mathcal{A}}$.
+
+          So $\sigma(\mathcal{A})=\sigma(\underline{\mathcal{A}}),\kappa(\mathcal{A})=\kappa(\underline{\mathcal{A}}).$
+
+    \item \begin{equation*}
+              \begin{aligned}
+                  \vec{v} & =\begin{pmatrix}
+                                 (v,\phi_1) \\
+                                 (v,\phi_2) \\
+                                 \vdots     \\
+                                 (v,\phi_N)
+                             \end{pmatrix}                              \\
+                          & =\begin{pmatrix}
+                                 (\sum_{i=1}^N \underline{v}_i\phi_i,\phi_1) \\
+                                 (\sum_{i=1}^N \underline{v}_i\phi_i,\phi_2) \\
+                                 \vdots                                      \\
+                                 (\sum_{i=1}^N \underline{v}_i\phi_i,\phi_N)
+                             \end{pmatrix} \\
+                          & =\begin{pmatrix}
+                                 \sum_{i=1}^N \underline{v}_i(\phi_i,\phi_1) \\
+                                 \sum_{i=1}^N \underline{v}_i(\phi_i,\phi_2) \\
+                                 \vdots                                      \\
+                                 \sum_{i=1}^N \underline{v}_i(\phi_i,\phi_N)
+                             \end{pmatrix} \\
+                          & =M\underline{v}
+              \end{aligned}
+          \end{equation*}
+          \begin{equation*}
+              \begin{aligned}
+                  \overrightarrow{\mathcal{A}v} & =\begin{pmatrix}
+                                                       (\mathcal{A}v,\phi_1) \\
+                                                       (\mathcal{A}v,\phi_2) \\
+                                                       \vdots                \\
+                                                       (\mathcal{A}v,\phi_N)
+                                                   \end{pmatrix}                                  \\
+                                                & =\begin{pmatrix}
+                                                       (\mathcal{A}\sum_{i=1}^N \underline{v}_i\phi_i,\phi_1) \\
+                                                       (\mathcal{A}\sum_{i=1}^N \underline{v}_i\phi_i,\phi_2) \\
+                                                       \vdots                                                 \\
+                                                       (\mathcal{A}\sum_{i=1}^N \underline{v}_i\phi_i,\phi_N)
+                                                   \end{pmatrix} \\
+                                                & =\begin{pmatrix}
+                                                       \sum_{i=1}^N \underline{v}_i(\mathcal{A}\phi_i,\phi_1) \\
+                                                       \sum_{i=1}^N \underline{v}_i(\mathcal{A}\phi_i,\phi_2) \\
+                                                       \vdots                                                 \\
+                                                       \sum_{i=1}^N \underline{v}_i(\mathcal{A}\phi_i,\phi_N)
+                                                   \end{pmatrix} \\
+                                                & =\hat{\mathcal{A}}\underline{v}
+              \end{aligned}
+          \end{equation*}
+    \item $\overrightarrow{\mathcal{A}v} =M\underline{\mathcal{A}v}=M\underline{\mathcal{A}}\,\underline{v}$, so $\hat{\mathcal{A}}=M\underline{\mathcal{A}}.$
+    \item $(u,v)=(\sum_{i=1}^N\underline{u}_i\phi_i,\sum_{i=j}^N\underline{v}_j\phi_j)=\sum_{j}^N(\sum_{i=1}^{N}(\phi_i,\phi_j)\underline{u}_i)\underline{v}_j=(M\underline{u},\underline{v})$.
+\end{enumerate}
+
+
+
+\end{document} % This is the end of the document
