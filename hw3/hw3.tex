@@ -1,0 +1,93 @@
+% !TEX program  = xelatex
+\documentclass{article}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{amsmath}
+%\usepackage{ocencfd}
+\usepackage{amssymb}
+\title{Homework 3} % Sets article title
+\author{Yang Che,  202218000206022} % Sets authors name
+%\authorID{jsmith} %Link to your profile ID.
+%\documentID{HW1} %Should be alphanumeric identifier
+%\fileInclude{} %Names of file to attach
+\date{} % Sets date for publication as date compiled
+
+% The preamble ends with the command \begin{document}
+\begin{document} % All begin commands must be paired with an end command somewhere
+
+\maketitle % creates title using information in preamble (title, author, date)
+
+%New section is created
+\section{ }
+$A_k^{\frac{1}{2}}E_\text{IMG}A_k^{-\frac{1}{2}}$ is symmetric and $\lambda(E_\text{IMG}^{(k)})\subset[0,1)$
+
+
+\textbf{Proof}
+
+\begin{equation*}\begin{aligned}A_{L-1}^T= & (P_L^TA_LP_L)^T \\
+               =          & P_L^TA_L^TP_L   \\
+               =          & P_L^TA^TP_L     \\
+               =          & P_L^TAP_L       \\
+               =          & P_L^TA_LP_L     \\
+               =          & A_{L-1}\end{aligned}\end{equation*}
+so, we can assume that $A_{k+1}$ is symmetric.
+\begin{equation*}
+    \begin{aligned}
+        A_{k}^T= & (P_{k+1}^TA_{k+1}P_{k+1})^T \\
+        =        & P_{k+1}^TA_{k+1}^TP_{k+1}   \\
+        =        & P_{k+1}^TA_{k+1}P_{k+1}     \\
+        =        & A_{k}
+    \end{aligned}
+\end{equation*}
+Thus $A_k$ is symmetric.
+
+\begin{equation*}
+    \begin{aligned}
+        A_1^{\frac{1}{2}}E_\text{IMG}^{(1)}A_1^{-\frac{1}{2}}= & A_1^{\frac{1}{2}}(I-M_1^{-T}A_1)A_1^{-\frac{1}{2}} A_1^{\frac{1}{2}}(I-P_1\hat{A}_0^{-1}P_1^TA_1)A_1^{-\frac{1}{2}}A_1^{\frac{1}{2}}(I-M_1^{-1}A_1)A_1^{-\frac{1}{2}} \\
+        =                                                      & (I-A_1^{\frac{1}{2}}M_1^{-T}A_1^{-\frac{1}{2}})(I-A_1^{\frac{1}{2}}P_1\hat{A}_0^{-1}P_1^TA_1^{ \frac{1}{2}})(I-A_1^{\frac{1}{2}}M_1^{-1}A_1^{\frac{1}{2}})            \\
+    \end{aligned}
+\end{equation*}
+
+
+\begin{equation*}
+    \begin{aligned}
+        (A_1^{\frac{1}{2}}E_\text{IMG}^{(1)}A_1^{-\frac{1}{2}})^T
+        = & (I-A_1^{\frac{1}{2}}M_1^{-1}A_1^{\frac{1}{2}})^T(I-A_1^{\frac{1}{2}}P_1\hat{A}_0^{-1}P_1^TA_1^{\frac{1}{2}})^T(I-A_1^{\frac{1}{2}}M_1^{-T}A_1^{\frac{1}{2}})^T \\
+        = & (I-A_1^{\frac{1}{2}}M_1^{-T}A_1^{\frac{1}{2}})(I-A_1^{\frac{1}{2}}P_1\hat{A}_0^{-1}P_1^TA_1^{\frac{1}{2}})(I-A_1^{\frac{1}{2}}M_1^{-1}A_1^{\frac{1}{2}})       \\
+        = & A_1^{\frac{1}{2}}E_\text{IMG}^{(1)}A_1^{-\frac{1}{2}}
+    \end{aligned}
+\end{equation*}
+So $A_1^{\frac{1}{2}}E_\text{IMG}^{(1)}A_1^{-\frac{1}{2}}$ is symmetric. Thus we assume that $A_{k-1}^{\frac{1}{2}}E_\text{IMG}^{(k-1)}A_{k-1}^{-\frac{1}{2}}$ is SPD.
+
+\begin{equation*}
+    \begin{aligned}
+        (A_k^{\frac{1}{2}}E_\text{IMG}^{(k)}A_k^{-\frac{1}{2}})^T= & (N_K^T[I-A_k^{\frac{1}{2}}P_kA_{k-1}^{-\frac{1}{2}}(I-(A_{k-1}^{\frac{1}{2}}E_\text{IMG}^{(k-1)}A_{k-1}^{-\frac{1}{2}})^\gamma)A_{K-1}^{-\frac{1}{2}}P_k^TA_k^{\frac{1}{2}}]N_k)^T \\
+        =                                                          & N_K^T[I-A_k^{\frac{1}{2}}P_kA_{k-1}^{-\frac{1}{2}}(I-(A_{k-1}^{\frac{1}{2}}E_\text{IMG}^{(k-1)}A_{k-1}^{-\frac{1}{2}})^\gamma)A_{K-1}^{-\frac{1}{2}}P_k^TA_k^{\frac{1}{2}}]N_k     \\
+        =                                                          & A_k^{\frac{1}{2}}E_\text{IMG}^{(k)}A_k^{-\frac{1}{2}}
+    \end{aligned}
+\end{equation*}
+So $A_k^{\frac{1}{2}}E_\text{IMG}^{(k)}A_k^{-\frac{1}{2}}$ is symmetric.
+
+$\forall x$
+\begin{equation*}
+    \begin{aligned}
+        x^TA_1^{\frac{1}{2}}E_\text{IMG}^{(1)}A_1^{-\frac{1}{2}}x= & x^T (I-A_1^{\frac{1}{2}}M_1^{-T}A_1^{-\frac{1}{2}})(I-A_1^{\frac{1}{2}}P_1\hat{A}_0^{-1}P_1^TA_1^{ \frac{1}{2}})(I-A_1^{\frac{1}{2}}M_1^{-1}A_1^{\frac{1}{2}}) x  \\
+        =                                                          & ((I-A_1^{\frac{1}{2}}M_1^{-1}A_1^{\frac{1}{2}}) x )^TA^{\frac{1}{2}}(I-P_1\hat{A}_0^{-1}P_1^TA)A^{\frac{1}{2}}((I-A_1^{\frac{1}{2}}M_1^{-1}A_1^{\frac{1}{2}}) x )
+    \end{aligned}
+\end{equation*}
+
+\section{}
+$B_c=A_{k-1}(I-(E_\text{IMG}^{(k-1)})^\gamma)^{-1}$ is SPD.
+
+\textbf{Proof}
+\begin{equation*}
+    \begin{aligned}
+        B_c= & A_{k-1}(I-(E_\text{IMG}^{(k-1)})^\gamma)^{-1}                                                                                                      \\
+        =    & A_{k-1}^{\frac{1}{2}}(A_{k-1}^{-\frac{1}{2}}-(E_\text{IMG}^{(k-1)})^\gamma A_{k-1}^{-\frac{1}{2}})^{-1}                                            \\
+        =    & A_{k-1}^{\frac{1}{2}}(A_{k-1}^{-\frac{1}{2}}-A_{k-1}^{-\frac{1}{2}}A_{k-1}^{\frac{1}{2}}(E_\text{IMG}^{(k-1)})^\gamma A_{k-1}^{-\frac{1}{2}})^{-1} \\
+        =    & A_{k-1}^{\frac{1}{2}}(I-A_{k-1}^{\frac{1}{2}}(E_\text{IMG}^{(k-1)})^\gamma A_{k-1}^{-\frac{1}{2}})^{-1} A_{k-1}^{\frac{1}{2}}                      \\
+        =    & A_{k-1}^{\frac{1}{2}}(I-(A_{k-1}^{\frac{1}{2}} E_\text{IMG}^{(k-1)} A_{k-1}^{-\frac{1}{2}})^\gamma)^{-1} A_{k-1}^{\frac{1}{2}}                     \\
+    \end{aligned}
+\end{equation*}
+Due to the fact that $A_{k-1}^{\frac{1}{2}} E_\text{IMG}^{k-1} A_{k-1}^{-\frac{1}{2}}$ is symmetric, $B_c$ is symmetric. And $\lambda(E_\text{IMG}^{(k-1)})=\lambda(A_{k-1}^{\frac{1}{2}} E_\text{IMG}^{(k-1)} A_{k-1}^{-\frac{1}{2}})\subset[0,1)$, thus $B_c$ is SPD.
+\end{document} % This is the end of the document
