@@ -18,8 +18,33 @@
 \maketitle % creates title using information in preamble (title, author, date)
 
 %New section is created
+
+
 \section{ }
-$A_k^{\frac{1}{2}}E_\text{IMG}A_k^{-\frac{1}{2}}$ is symmetric and $\lambda(E_\text{IMG}^{(k)})\subset[0,1)$
+$\frac{1}{K_{TG}}=\lambda_{\min}^+(\tilde{M}^{-1}A(I-\Pi_A)).$
+
+\textbf{Proof}
+\begin{equation*}
+    \begin{aligned}
+        X^{-1}\tilde{M}^{-1}A(I-\Pi_A)X=   & X^{-1}\tilde{M}^{-1}AXX^{-1}(I-\Pi_A)X \\
+        =                                = & \begin{pmatrix}
+                                                 \hat{X}_{11} & \hat{X}_{12} \\
+                                                 \hat{X}_{21} & \hat{X}_{22}
+                                             \end{pmatrix}
+        \begin{pmatrix}
+            0 & 0         \\
+            0 & I_{n-n_c}
+        \end{pmatrix}                                                              \\
+        =                                  & \begin{pmatrix}
+                                                 0 & \hat{X}_{12} \\
+                                                 0 & \hat{X}_{22}
+                                             \end{pmatrix}
+    \end{aligned}
+\end{equation*}
+Thus, $\lambda_{\min}^+(\tilde{M}^{-1}A(I-\Pi_A))=\lambda_{\min}(\hat{X}_{22})=\frac{1}{K_{TG}}$
+
+\section{ }
+$A_k^{\frac{1}{2}}E^{(k)}_\text{IMG}A_k^{-\frac{1}{2}}$ is symmetric and $\lambda(E_\text{IMG}^{(k)})\subset[0,1)$
 
 
 \textbf{Proof}
