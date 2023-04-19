@@ -93,13 +93,54 @@ So $A_1^{\frac{1}{2}}E_\text{IMG}^{(1)}A_1^{-\frac{1}{2}}$ is symmetric. Thus we
 \end{equation*}
 So $A_k^{\frac{1}{2}}E_\text{IMG}^{(k)}A_k^{-\frac{1}{2}}$ is symmetric.
 
-$\forall x$
+For all $ x,$
 \begin{equation*}
     \begin{aligned}
         x^TA_1^{\frac{1}{2}}E_\text{IMG}^{(1)}A_1^{-\frac{1}{2}}x= & x^T (I-A_1^{\frac{1}{2}}M_1^{-T}A_1^{-\frac{1}{2}})(I-A_1^{\frac{1}{2}}P_1\hat{A}_0^{-1}P_1^TA_1^{ \frac{1}{2}})(I-A_1^{\frac{1}{2}}M_1^{-1}A_1^{\frac{1}{2}}) x  \\
         =                                                          & ((I-A_1^{\frac{1}{2}}M_1^{-1}A_1^{\frac{1}{2}}) x )^TA^{\frac{1}{2}}(I-P_1\hat{A}_0^{-1}P_1^TA)A^{\frac{1}{2}}((I-A_1^{\frac{1}{2}}M_1^{-1}A_1^{\frac{1}{2}}) x )
     \end{aligned}
 \end{equation*}
+
+Assume $\lambda(E_\text{IMG}^{(k)})=\lambda(A_{k-1}^{\frac{1}{2}}E_\text{IMG}^{(k-1)}A_{k-1}^{-\frac{1}{2}})\subset[0,1),$
+
+\begin{equation*}
+    \begin{aligned}
+        \lambda(I-(A_{k-1}^{\frac{1}{2}}E_\text{IMG}^{(k-1)}A_{k-1}^{-\frac{1}{2}})^\gamma)= & 1-\lambda((A_{k-1}^{\frac{1}{2}}E_\text{IMG}^{(k-1)}A_{k-1}^{-\frac{1}{2}})^\gamma)  \\
+        =                                                                                    & 1-\lambda(A_{k-1}^{\frac{1}{2}}(E_\text{IMG}^{(k-1)})^\gamma A_{k-1}^{-\frac{1}{2}}) \\
+        =                                                                                    & 1-\lambda((E_\text{IMG}^{(k-1)})^\gamma )                                            \\
+    \end{aligned}
+\end{equation*}
+Thus $ \lambda(I-(A_{k-1}^{\frac{1}{2}}E_\text{IMG}^{(k-1)}A_{k-1}^{-\frac{1}{2}})^\gamma)\subset (0,1]$, $I-A_{k-1}^{\frac{1}{2}}E_\text{IMG}^{(k-1)}A_{k-1}^{-\frac{1}{2}}$ is a SPD matrix, $A_k^{\frac{1}{2}}P_kA_{k-1}^{-\frac{1}{2}}(I-(A_{k-1}^{\frac{1}{2}}E_\text{IMG}^{(k-1)}A_{k-1}^{-\frac{1}{2}})^\gamma)A_{K-1}^{-\frac{1}{2}}P_k^TA_k^{\frac{1}{2}}$ is a SPD matrix.
+\begin{equation*}
+    \begin{aligned}
+        \lambda(A_k^{\frac{1}{2}}E_\text{IMG}^{(k)}A_k^{-\frac{1}{2}})= & 1-\lambda(A_k^{\frac{1}{2}}P_kA_{k-1}^{-\frac{1}{2}}(I-(A_{k-1}^{\frac{1}{2}}E_\text{IMG}^{(k-1)}A_{k-1}^{-\frac{1}{2}})^\gamma)A_{k-1}^{-\frac{1}{2}}P_k^TA_k^{\frac{1}{2}}) <1
+    \end{aligned}
+\end{equation*}
+
+
+\begin{equation*}
+    \begin{aligned}
+                  & \lambda_{\max} (A_k^{\frac{1}{2}}P_kA_{k-1}^{-\frac{1}{2}}(I-(A_{k-1}^{\frac{1}{2}}E_\text{IMG}^{(k-1)}A_{k-1}^{-\frac{1}{2}})^\gamma)A_{k-1}^{-\frac{1}{2}}P_k^TA_k^{\frac{1}{2}}) \\
+        =         & \sigma_{\max} (A_k^{\frac{1}{2}}P_kA_{k-1}^{-\frac{1}{2}}(I-(A_{k-1}^{\frac{1}{2}}E_\text{IMG}^{(k-1)}A_{k-1}^{-\frac{1}{2}})^\gamma)A_{k-1}^{-\frac{1}{2}}P_k^TA_k^{\frac{1}{2}})  \\
+        =         & \Vert A_k^{\frac{1}{2}}P_kA_{k-1}^{-\frac{1}{2}}(I-(A_{k-1}^{\frac{1}{2}}E_\text{IMG}^{(k-1)}A_{k-1}^{-\frac{1}{2}})^\gamma)A_{k-1}^{-\frac{1}{2}}P_k^TA_k^{\frac{1}{2}} \Vert_2    \\
+        \leqslant & \Vert A_k^{\frac{1}{2}}P_kA_{k-1}^{-\frac{1}{2}}\Vert_2^2\Vert I-(A_{k-1}^{\frac{1}{2}}E_\text{IMG}^{(k-1)}A_{k-1}^{-\frac{1}{2}})^\gamma\Vert_2                                    \\
+        \leqslant & \lambda_{\max}(A_k^{\frac{1}{2}}P_kA_{k-1}^{-\frac{1}{2}}A_{k-1}^{-\frac{1}{2}}P_k^TA_{k}^{\frac{1}{2}})                                                                            \\
+        =         & \lambda_{\max}(A_k^{\frac{1}{2}}P_kA_{k-1}^{-1}P_k^TA_{k}^{\frac{1}{2}})
+    \end{aligned}
+\end{equation*}
+
+\begin{equation*}
+    \begin{aligned}
+        (A_k^{\frac{1}{2}}P_kA_{k-1}^{-1}P_k^TA_{k}^{\frac{1}{2}})^2= & A_k^{\frac{1}{2}}P_kA_{k-1}^{-1}P_k^TA_{k}^{\frac{1}{2}}A_k^{\frac{1}{2}}P_kA_{k-1}^{-1}P_k^TA_{k}^{\frac{1}{2}} \\
+        =                                                             & A_k^{\frac{1}{2}}P_kA_{k-1}^{-1}P_k^TA_{k}P_kA_{k-1}^{-1}P_k^TA_{k}^{\frac{1}{2}}                                \\
+        =                                                             & A_k^{\frac{1}{2}}P_kA_{k-1}^{-1}A_{k-1}A_{k-1}^{-1}P_k^TA_{k}^{\frac{1}{2}}                                      \\
+        =                                                             & A_k^{\frac{1}{2}}P_kA_{k-1}^{-1}P_k^TA_{k}^{\frac{1}{2}}
+    \end{aligned}
+\end{equation*}
+Thus, $A_k^{\frac{1}{2}}P_kA_{k-1}^{-1}P_k^TA_{k}^{\frac{1}{2}}$ is a projection, $\lambda_{\max}(A_k^{\frac{1}{2}}P_kA_{k-1}^{-1}P_k^TA_{k}^{\frac{1}{2}})\leqslant 1,   \lambda_{\max} (A_k^{\frac{1}{2}}P_kA_{k-1}^{-\frac{1}{2}}(I-(A_{k-1}^{\frac{1}{2}}E_\text{IMG}^{(k-1)}A_{k-1}^{-\frac{1}{2}})^\gamma)A_{k-1}^{-\frac{1}{2}}P_k^TA_k^{\frac{1}{2}})\leqslant 1$
+$\lambda(A_k^{\frac{1}{2}}E_\text{IMG}^{(k)}A_k^{-\frac{1}{2}})\geqslant 0$.
+
+So, $\lambda(E_\text{IMG}^{(k)})=\lambda(A_k^{\frac{1}{2}}E_\text{IMG}^{(k)}A_k^{-\frac{1}{2}})\subset[0,1).$
 
 \section{}
 $B_c=A_{k-1}(I-(E_\text{IMG}^{(k-1)})^\gamma)^{-1}$ is SPD.
